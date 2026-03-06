@@ -2,35 +2,34 @@
 
 using namespace std;
 
-
-void Swap(int A, int B)
+//call by value이용한 포인터 참조 연산
+void Swap(int* PA, int* PB)
 {
-	int Temp = 0;
-
-	Temp = A;
-	A = B;
-	B = Temp;
+	int Temp = *PA;
+	*PA = *PB;
+	*PB = Temp;
 }
 
+//C++ 참조자
+//call by reference
+//void Swap(int& PA, int& PB)
+//{
+//	int Temp = PA;
+//	PA = PB;
+//	PB = Temp;
+//}
 
 int main()
 {
+	int* PA = 0;
 	int A = 10;
 	int B = 20;
-	int Temp = 0;
 
-	int* PA = nullptr;
-	PA = &A;
-
-	cout << *PA << endl;
+	cout << &A << endl;
+	cout << &B << endl;
 
 
-	return 0;
-
-
-
-	Swap(A, B);
-
+	Swap(&A, &B);
 
 	cout << A << endl;
 	cout << B << endl;
